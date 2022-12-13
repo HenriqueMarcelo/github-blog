@@ -27,4 +27,8 @@ export const Input = styled.input`
   background: ${({ theme }) => theme['base-input']};
 
   margin-top: 0.75rem;
+
+  &::placeholder {
+    color: ${({ theme }) => theme['base-label']};
+  }
 `

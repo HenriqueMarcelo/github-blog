@@ -7,7 +7,7 @@ export function Form() {
         <Title>Publicações</Title>
         <Number>6 publicações</Number>
       </div>
-      <Input />
+      <Input placeholder="Buscar conteúdo" />
     </FormContainer>
   )
 }
