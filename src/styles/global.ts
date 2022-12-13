@@ -37,6 +37,7 @@ export const GlobalStyle = createGlobalStyle`
         cursor: pointer;
         text-transform: uppercase;
         font-weight: 700;
+        text-decoration: none;
 
         display: inline-flex;
         gap: 0.5rem;

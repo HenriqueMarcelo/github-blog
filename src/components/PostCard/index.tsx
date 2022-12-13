@@ -1,8 +1,11 @@
+import { LinkProps } from 'react-router-dom'
 import { Date, Header, PostCardContainer, Text, Title } from './styles'
 
-export function PostCard() {
+interface PostCardProps extends LinkProps {}
+
+export function PostCard(props: PostCardProps) {
   return (
-    <PostCardContainer>
+    <PostCardContainer {...props}>
       <Header>
         <Title>JavaScript data types and data structures</Title>
         <Date>Há 1 dia</Date>

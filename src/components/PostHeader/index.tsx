@@ -3,8 +3,10 @@ import {
   faArrowUpRightFromSquare,
   faCalendarDay,
   faComment,
+  faChevronLeft,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom'
 import { Info, LinksHolder, PostHeaderContainer, Title } from './styles'
 
 export function PostHeader() {
@@ -12,12 +14,12 @@ export function PostHeader() {
     <PostHeaderContainer>
       <div>
         <LinksHolder>
+          <Link to={'..'} className="link">
+            <FontAwesomeIcon icon={faChevronLeft} />
+            <span>Voltar</span>
+          </Link>
           <a className="link">
-            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-            <span>Github</span>
-          </a>
-          <a className="link">
-            <span>Github</span>
+            <span>Ver no Github</span>
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
           </a>
         </LinksHolder>
