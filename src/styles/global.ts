@@ -21,6 +21,8 @@ export const GlobalStyle = createGlobalStyle`
     body {
         background-color: ${({ theme }) => theme['base-background']};
         color: ${({ theme }) => theme['base-text']};
+
+        padding-bottom: 14.625rem;
     }
 
     // Elementos Globais
@@ -29,7 +31,7 @@ export const GlobalStyle = createGlobalStyle`
         cursor: pointer;
     }
 
-    a {
+    .link {
         color: ${({ theme }) => theme.blue};
         font-size: 0.75rem;
         cursor: pointer;
@@ -46,6 +48,13 @@ export const GlobalStyle = createGlobalStyle`
         &:hover {
             border-color: ${({ theme }) => theme.blue};
         }
+    }
+
+    // Classes auxiliares
+
+    .justify-content-between{
+        display: flex;
+        justify-content: space-between;
     }
 
 `

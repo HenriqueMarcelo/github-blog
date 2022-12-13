@@ -11,6 +11,7 @@ export const ProfileContainer = styled(Container)`
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
 
   margin-top: -5.5rem;
+  margin-bottom: 4.5rem;
 `
 
 export const ImageHolder = styled.div`

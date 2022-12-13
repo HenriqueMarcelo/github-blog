@@ -23,7 +23,7 @@ export function Profile() {
       <div>
         <NameHolder>
           <Name>Marcelo Henrique</Name>
-          <a>
+          <a className="link">
             <span>Github</span>
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
           </a>
