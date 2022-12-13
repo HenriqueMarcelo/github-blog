@@ -2,6 +2,7 @@ import { ThemeProvider } from 'styled-components'
 import { Form } from './components/Form'
 import { Header } from './components/Header'
 import { PostCard } from './components/PostCard'
+import { PostHeader } from './components/PostHeader'
 import { Profile } from './components/Profile'
 import { Container, PostCardContainer } from './styles/components'
 import { GlobalStyle } from './styles/global'
@@ -12,7 +13,7 @@ export default function App() {
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
       <Header />
-      <Profile />
+      {/* <Profile />
       <Form />
       <PostCardContainer>
         <PostCard />
@@ -22,7 +23,9 @@ export default function App() {
         <PostCard />
         <PostCard />
         <PostCard />
-      </PostCardContainer>
+      </PostCardContainer> */}
+
+      <PostHeader />
     </ThemeProvider>
   )
 }
