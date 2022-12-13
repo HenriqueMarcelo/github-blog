@@ -8,12 +8,9 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body, input, textarea, button {
-        font: 400 1rem Roboto, sans-serif;
+        font-weight: normal;
+        font-family: 'Nunito', sans-serif;
         line-height: 160%;
-    }
-
-    button {
-        cursor: pointer;
     }
 
     :focus {
@@ -24,6 +21,31 @@ export const GlobalStyle = createGlobalStyle`
     body {
         background-color: ${({ theme }) => theme['base-background']};
         color: ${({ theme }) => theme['base-text']};
+    }
+
+    // Elementos Globais
+
+    button {
+        cursor: pointer;
+    }
+
+    a {
+        color: ${({ theme }) => theme.blue};
+        font-size: 0.75rem;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: 700;
+
+        display: inline-flex;
+        gap: 0.5rem;
+        align-items: center;
+        border-bottom: 1px solid transparent;
+
+        transition: all 0.1s;
+        
+        &:hover {
+            border-color: ${({ theme }) => theme.blue};
+        }
     }
 
 `
