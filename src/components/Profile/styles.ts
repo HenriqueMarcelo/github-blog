@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Container } from '../../styles/components'
 
 interface ProfileContainerProps {
-  loading?: boolean
+  isLoading: boolean
 }
 
 export const ProfileContainer = styled(Container)<ProfileContainerProps>`
@@ -17,7 +17,7 @@ export const ProfileContainer = styled(Container)<ProfileContainerProps>`
   margin-top: -5.5rem;
   margin-bottom: 4.5rem;
 
-  filter: ${({ loading }) => (loading ? 'blur(15px)' : 'none')};
+  filter: ${({ isLoading }) => (isLoading ? `blur(15px)` : `none`)};
 `
 
 export const ImageHolder = styled.div`

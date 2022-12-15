@@ -19,10 +19,10 @@ import {
 export function Profile() {
   const { profile } = useContext(ProfileContext)
 
-  const isLoading = !profile?.name
+  const isLoading = !profile.name
 
   return (
-    <ProfileContainer loading={isLoading}>
+    <ProfileContainer isLoading={isLoading}>
       <ImageHolder>
         <img
           src={profile?.avatar_url || 'https://via.placeholder.com/150'}
