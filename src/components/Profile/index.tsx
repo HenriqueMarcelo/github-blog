@@ -5,6 +5,8 @@ import {
   faBuilding,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useContext } from 'react'
+import { ProfileContext } from '../../contexts/ProfileContext'
 import {
   Bio,
   ImageHolder,
@@ -15,36 +17,52 @@ import {
 } from './styles'
 
 export function Profile() {
+  const { profile } = useContext(ProfileContext)
+
+  const isLoading = !profile?.name
+
   return (
-    <ProfileContainer>
+    <ProfileContainer loading={isLoading}>
       <ImageHolder>
-        <img src="https://via.placeholder.com/150" />
+        <img
+          src={profile?.avatar_url || 'https://via.placeholder.com/150'}
+          width="150"
+        />
       </ImageHolder>
       <div>
         <NameHolder>
-          <Name>Marcelo Henrique</Name>
-          <a className="link">
+          <Name>{profile?.name || 'Lorem ipsum dolor'}</Name>
+          <a
+            className="link"
+            href={profile?.html_url}
+            target="_blank"
+            rel="noreferrer"
+          >
             <span>Github</span>
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
           </a>
         </NameHolder>
         <Bio>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit ex aut
-          doloremque ut et in facilis repudiandae, esse odit repellat quo.
+          {profile?.bio ||
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumend inventore laudantium, veniam illo'}
         </Bio>
         <Info>
           <span>
             <FontAwesomeIcon icon={faGithub} />
-            henriquem
+            {profile?.login || 'Lorem ipsum'}
           </span>
-          <span>
-            <FontAwesomeIcon icon={faBuilding} />
-            Kursi
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faUserGroup} />
-            32 seguidores
-          </span>
+          {profile?.company && (
+            <span>
+              <FontAwesomeIcon icon={faBuilding} />
+              {profile.company}
+            </span>
+          )}
+          {profile?.followers && (
+            <span>
+              <FontAwesomeIcon icon={faUserGroup} />
+              {profile.followers} seguidores
+            </span>
+          )}
         </Info>
       </div>
     </ProfileContainer>

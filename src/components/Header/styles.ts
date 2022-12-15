@@ -4,7 +4,9 @@ import cover from '../../assets/cover.png'
 export const HeaderContainer = styled.header`
   background-color: #101d30;
   background-image: url(${cover});
-  background-position: center;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: bottom;
 `
 
 export const LogoHolder = styled.div`

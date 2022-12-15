@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 import { Container } from '../../styles/components'
 
-export const ProfileContainer = styled(Container)`
+interface ProfileContainerProps {
+  loading?: boolean
+}
+
+export const ProfileContainer = styled(Container)<ProfileContainerProps>`
   background-color: ${({ theme }) => theme['base-profile']};
   border-radius: 10px;
   padding: 2rem 2.5rem;
@@ -12,6 +16,8 @@ export const ProfileContainer = styled(Container)`
 
   margin-top: -5.5rem;
   margin-bottom: 4.5rem;
+
+  filter: ${({ loading }) => (loading ? 'blur(15px)' : 'none')};
 `
 
 export const ImageHolder = styled.div`
