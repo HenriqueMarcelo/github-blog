@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom'
 import { PostHeader } from '../../components/PostHeader'
 import { getPostFromAPI, PostSummary } from '../../contexts/PostsContext'
 import { PostContent } from './styles'
+import ReactMarkdown from 'react-markdown'
+
+import 'github-markdown-css/github-markdown-dark.css'
 
 export function Post() {
   const { postNumber } = useParams()
@@ -17,7 +20,11 @@ export function Post() {
   return (
     <article>
       <PostHeader post={post} />
-      <PostContent>{post.body}</PostContent>
+      <PostContent className="">
+        <div className="markdown-body">
+          <ReactMarkdown>{post.body}</ReactMarkdown>
+        </div>
+      </PostContent>
     </article>
   )
 }

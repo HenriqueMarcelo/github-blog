@@ -16,9 +16,11 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "axios": "^1.2.1",
+    "github-markdown-css": "^5.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.40.0",
+    "react-markdown": "^8.0.4",
     "react-router-dom": "^6.4.5",
     "styled-components": "^5.3.6"
   },
