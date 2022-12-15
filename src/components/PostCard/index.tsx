@@ -1,24 +1,19 @@
-import { LinkProps } from 'react-router-dom'
+import { PostSummary } from '../../contexts/PostsContext'
 import { Date, Header, PostCardContainer, Text, Title } from './styles'
 
-interface PostCardProps extends LinkProps {}
+interface PostCardProps {
+  post: PostSummary
+}
 
-export function PostCard(props: PostCardProps) {
+export function PostCard({ post }: PostCardProps) {
   return (
-    <PostCardContainer {...props}>
+    <PostCardContainer to={`post/${post.number}`}>
       <Header>
-        <Title>JavaScript data types and data structures</Title>
-        <Date>Há 1 dia</Date>
+        <Title>{post.title}</Title>
+        {/* <Date>Há 1 dia</Date> */}
+        <Date>{new Intl.DateTimeFormat('pt-BR').format(post.created_at)}</Date>
       </Header>
-      <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-        deserunt numquam veniam! Sint consequuntur magnam cumque enim iusto
-        quibusdam quam dolor saepe nesciunt. Quas esse iure dicta, est, tenetur
-        voluptates dolor expedita ipsa cupiditate nam impedit. Error rem
-        explicabo sequi libero accusamus nulla velit culpa odit rerum
-        exercitationem corrupti distinctio pariatur officiis, similique quis
-        nesciunt consequuntur debitis adipisci quam fugiat.
-      </Text>
+      <Text>{post.body}</Text>
     </PostCardContainer>
   )
 }
