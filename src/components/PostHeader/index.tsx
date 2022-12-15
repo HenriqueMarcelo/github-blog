@@ -7,9 +7,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
+import { PostSummary } from '../../contexts/PostsContext'
 import { Info, LinksHolder, PostHeaderContainer, Title } from './styles'
 
-export function PostHeader() {
+interface PostHeaderProps {
+  post: PostSummary
+}
+
+export function PostHeader({ post }: PostHeaderProps) {
+  console.log(post)
   return (
     <PostHeaderContainer>
       <div>
@@ -18,23 +24,30 @@ export function PostHeader() {
             <FontAwesomeIcon icon={faChevronLeft} />
             <span>Voltar</span>
           </Link>
-          <a className="link">
+          <a
+            className="link"
+            href={post.html_url}
+            target="_blank"
+            rel="noreferrer"
+          >
             <span>Ver no Github</span>
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
           </a>
         </LinksHolder>
-        <Title>JavaScript data types and data structures</Title>
+        <Title>{post.title}</Title>
         <Info>
           <span>
             <FontAwesomeIcon icon={faGithub} />
-            henriquem
+            {post.author}
           </span>
           <span>
             <FontAwesomeIcon icon={faCalendarDay} />
-            Há 1 dia
+            {/* Há 1 dia */}
+            {new Intl.DateTimeFormat('pt-BR').format(post.created_at)}
           </span>
           <span>
-            <FontAwesomeIcon icon={faComment} />5 comentários
+            <FontAwesomeIcon icon={faComment} />
+            {post.comments} comentários
           </span>
         </Info>
       </div>

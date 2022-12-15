@@ -1,16 +1,23 @@
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { PostHeader } from '../../components/PostHeader'
+import { getPostFromAPI, PostSummary } from '../../contexts/PostsContext'
 import { PostContent } from './styles'
 
 export function Post() {
+  const { postNumber } = useParams()
+  const [post, setPost] = useState({} as PostSummary)
+
+  useEffect(() => {
+    ;(async function () {
+      setPost(await getPostFromAPI(String(postNumber)))
+    })()
+  }, [postNumber])
+
   return (
     <article>
-      <PostHeader />
-      <PostContent>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia
-        maxime, esse dolorem velit iure magnam voluptate quia ipsum quos fugit
-        corporis iusto nobis? Quibusdam perspiciatis id neque accusantium
-        asperiores. Deserunt!
-      </PostContent>
+      <PostHeader post={post} />
+      <PostContent>{post.body}</PostContent>
     </article>
   )
 }

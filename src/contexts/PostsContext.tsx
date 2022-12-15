@@ -5,7 +5,10 @@ export interface PostSummary {
   number: string
   title: string
   body: string
+  author: string
+  html_url: string
   created_at: Date
+  comments: number
 }
 
 interface PostContextType {
@@ -268,11 +271,14 @@ export function PostProvider({ children }: PostProviderProps) {
       ],
     }
 
-    const postsAPI = response.data.items.map((postAPI: PostSummary) => {
+    const postsAPI = response.data.items.map((postAPI: any) => {
       return {
         number: postAPI.number,
         title: postAPI.title,
         body: postAPI.body,
+        comments: postAPI.comments,
+        html_url: postAPI.html_url,
+        author: postAPI.user.login,
         created_at: new Date(postAPI.created_at),
       }
     })
@@ -289,4 +295,24 @@ export function PostProvider({ children }: PostProviderProps) {
       {children}
     </PostContext.Provider>
   )
+}
+
+export async function getPostFromAPI(
+  postNumber: string,
+  userName = githubUsername,
+  repository = githubRepository,
+) {
+  const reponse = await api.get(
+    `repos/${userName}/${repository}/issues/${postNumber}`,
+  )
+
+  return {
+    number: reponse.data.number,
+    title: reponse.data.title,
+    body: reponse.data.body,
+    comments: reponse.data.comments,
+    html_url: reponse.data.html_url,
+    author: reponse.data.user.login,
+    created_at: new Date(reponse.data.created_at),
+  }
 }
