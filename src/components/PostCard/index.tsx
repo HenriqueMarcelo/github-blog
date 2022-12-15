@@ -10,7 +10,6 @@ export function PostCard({ post }: PostCardProps) {
     <PostCardContainer to={`post/${post.number}`}>
       <Header>
         <Title>{post.title}</Title>
-        {/* <Date>Há 1 dia</Date> */}
         <Date>{new Intl.DateTimeFormat('pt-BR').format(post.created_at)}</Date>
       </Header>
       <Text>{post.body}</Text>

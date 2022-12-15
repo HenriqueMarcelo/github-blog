@@ -9,13 +9,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 import { PostSummary } from '../../contexts/PostsContext'
 import { Info, LinksHolder, PostHeaderContainer, Title } from './styles'
+import { formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 
 interface PostHeaderProps {
   post: PostSummary
 }
 
 export function PostHeader({ post }: PostHeaderProps) {
-  console.log(post)
+  console.log(post.created_at)
   return (
     <PostHeaderContainer>
       <div>
@@ -40,10 +42,15 @@ export function PostHeader({ post }: PostHeaderProps) {
             <FontAwesomeIcon icon={faGithub} />
             {post.author}
           </span>
-          <span>
+          <span
+            title={new Intl.DateTimeFormat('pt-BR').format(post.created_at)}
+          >
             <FontAwesomeIcon icon={faCalendarDay} />
-            {/* Há 1 dia */}
-            {new Intl.DateTimeFormat('pt-BR').format(post.created_at)}
+            {post.created_at &&
+              formatDistanceToNow(post.created_at, {
+                addSuffix: true,
+                locale: ptBR,
+              })}
           </span>
           <span>
             <FontAwesomeIcon icon={faComment} />
