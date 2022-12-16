@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { PostHeader } from '../../components/PostHeader'
 import { getPostFromAPI, PostSummary } from '../../contexts/PostsContext'
 import { PostContent } from './styles'
@@ -9,13 +9,18 @@ import 'github-markdown-css/github-markdown-dark.css'
 
 export function Post() {
   const { postNumber } = useParams()
+  const { state } = useLocation()
   const [post, setPost] = useState({} as PostSummary)
 
   useEffect(() => {
-    ;(async function () {
-      setPost(await getPostFromAPI(String(postNumber)))
-    })()
-  }, [postNumber])
+    if (state.post) {
+      setPost(state.post)
+    } else {
+      ;(async function () {
+        setPost(await getPostFromAPI(String(postNumber)))
+      })()
+    }
+  }, [postNumber, state.post])
 
   return (
     <article>

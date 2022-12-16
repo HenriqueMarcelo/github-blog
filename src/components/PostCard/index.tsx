@@ -7,7 +7,7 @@ interface PostCardProps {
 
 export function PostCard({ post }: PostCardProps) {
   return (
-    <PostCardContainer to={`post/${post.number}`}>
+    <PostCardContainer to={`post/${post.number}`} state={{ post }}>
       <Header>
         <Title>{post.title}</Title>
         <Date>{new Intl.DateTimeFormat('pt-BR').format(post.created_at)}</Date>
