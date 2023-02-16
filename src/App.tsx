@@ -12,7 +12,7 @@ export default function App() {
       <GlobalStyle />
       <PostProvider>
         <ProfileProvider>
-          <BrowserRouter>
+          <BrowserRouter basename={import.meta.env.VITE_BASENAME}>
             <Router />
           </BrowserRouter>
         </ProfileProvider>
