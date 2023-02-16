@@ -17,6 +17,14 @@ jobs:
       - name: Install dependencies 🔧
         run: |
           yarn install --immutable --immutable-cache --check-cache
+
+      - name: 'Create env file 🌱'
+        run: |
+          touch .env
+          echo VITE_GITHUB_USERNAME="HenriqueMarcelo" >> .env
+          echo VITE_GITHUB_REPOSITORY="github-blog" >> .env
+          echo VITE_BASENAME="/github-blog" >> .env
+          cat .env
           
       - name: Build ⛏
         run: |
