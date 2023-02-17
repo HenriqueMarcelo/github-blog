@@ -22,7 +22,7 @@ jobs:
           echo VITE_BASENAME="/github-blog" >> .env
           cat .env
 
-      - name: Build 👷‍♀️
+      - name: Build dependencies 👷‍♀️
         run: |
           yarn build
 
@@ -52,5 +52,5 @@ jobs:
           server: ${{ secrets.ftp_host }}
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
-          server-dir: ${{ secrets.ftp_dir }}
+          server-dir: /public_html/github-blog/
           local-dir: ./dist/
