@@ -1,0 +1,37 @@
+name: Build and Deploy to GH Pages (depreciated)
+
+on: 
+  workflow_dispatch:
+  
+permissions:
+  contents: write
+  
+jobs:
+  build-and-deploy:
+    name: Build and Deploy 🦾
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository 🛎️
+        uses: actions/checkout@main
+
+      - name: Install dependencies 🔧
+        run: |
+          yarn install --immutable --immutable-cache --check-cache
+
+      - name: 'Create env file 🌱'
+        run: |
+          touch .env
+          echo VITE_GITHUB_USERNAME="HenriqueMarcelo" >> .env
+          echo VITE_GITHUB_REPOSITORY="github-blog" >> .env
+          echo VITE_BASENAME="/github-blog" >> .env
+          cat .env
+          
+      - name: Build ⛏
+        run: |
+          yarn build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist

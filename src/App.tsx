@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, HashRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { Router } from './components/Router'
 import { PostProvider } from './contexts/PostsContext'
@@ -12,9 +12,9 @@ export default function App() {
       <GlobalStyle />
       <PostProvider>
         <ProfileProvider>
-          <BrowserRouter basename={import.meta.env.VITE_BASENAME}>
+          <HashRouter>
             <Router />
-          </BrowserRouter>
+          </HashRouter>
         </ProfileProvider>
       </PostProvider>
     </ThemeProvider>
