@@ -6,7 +6,7 @@ Welcome to the Github Blog, a web application developed as a challenge for Rocke
 
 With Github Blog, it is possible to create, edit and publish posts through Github itself, as an "issue" in a given repository (configurable through the .env file). In addition, our application uses the Github API to fetch information about the user and display it in their blog profile.
 
-Check out the online application at: https://henriquemarcelo.github.io/github-blog/
+Check out the online application at: https://github-blog.kursi.com.br/
 
 ## Functionality
 
