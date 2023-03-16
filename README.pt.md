@@ -6,7 +6,7 @@ Bem-vindo ao Github Blog, um aplicativo web desenvolvido como desafio do curso I
 
 Com o Github Blog, é possível criar, editar e publicar posts através do próprio Github, como uma "issue" em um determinado repositório (configurável através do arquivo .env). Além disso, nosso aplicativo utiliza a API do Github para buscar informações sobre o usuário e exibi-los em seu perfil no blog.
 
-Confira a aplicação online em: https://github-blog.kursi.com.br/
+Confira a aplicação online em: https://github-blog.marcelohenrique.dev.br/
 
 ## Funcionalidades
 
